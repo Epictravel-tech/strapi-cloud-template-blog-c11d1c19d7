@@ -1,5 +1,18 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface HomeTopDestinations extends Schema.Component {
+  collectionName: 'components_home_top_destinations';
+  info: {
+    displayName: 'topDestinations';
+    icon: 'apps';
+  };
+  attributes: {
+    title: Attribute.String;
+    subTitle: Attribute.String;
+    image: Attribute.Media;
+  };
+}
+
 export interface SharedMedia extends Schema.Component {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +78,7 @@ export interface SharedSlider extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'home.top-destinations': HomeTopDestinations;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
